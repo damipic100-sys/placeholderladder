@@ -1,7 +1,7 @@
 app.get("/ladder", async (req, res) => {
   const headers = {
     "X-Riot-Token": process.env.RIOT_KEY,
-    "User-Agent": "PONPONPON"
+    "User-Agent": "riot-debug"
   };
 
   const acc = await fetch(
