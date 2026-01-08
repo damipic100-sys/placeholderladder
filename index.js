@@ -11,7 +11,7 @@ app.use(cors()); // 🔥 FIX REAL
 app.get("/ladder", async (req, res) => {
   try {
     const players = [
-      { name: "DAMI", tag: "ARG", region: "la2" }
+      { name: "bic", tag: "717", region: "la2" }
     ];
 
     const headers = {
