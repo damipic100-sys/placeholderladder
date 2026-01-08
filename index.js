@@ -3,13 +3,16 @@ import fetch from "node-fetch";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 const RIOT_KEY = process.env.RIOT_KEY;
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/ladder", async (req, res) => {
   const players = [
-    { name: "DAMI", tag: "ARG", region: "la2" },
-    { name: "PONPONPON", tag: "GWEN", region: "la2" }
+    { name: "DAMI", tag: "ARG", region: "la2" }
   ];
 
   const headers = {
@@ -17,7 +20,7 @@ app.get("/ladder", async (req, res) => {
     "User-Agent": "riot-proxy/1.0"
   };
 
-  const data = [];
+  const out = [];
 
   for (const p of players) {
     try {
@@ -36,11 +39,11 @@ app.get("/ladder", async (req, res) => {
         { headers }
       ).then(r => r.json());
 
-      data.push(ranks);
+      out.push(ranks);
     } catch {}
   }
 
-  res.json(data);
+  res.json(out);
 });
 
 app.listen(PORT);
