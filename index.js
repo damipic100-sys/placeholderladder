@@ -5,7 +5,7 @@ app.get("/ladder", async (req, res) => {
   };
 
   const acc = await fetch(
-    "https://americas.api.riotgames.com/riot/account/v1/accounts/by-game-name/DAMI/ARG",
+    "https://americas.api.riotgames.com/riot/account/v1/accounts/by-game-name/MAÑANAESTARDE/MET",
     { headers }
   ).then(r => r.json());
 
