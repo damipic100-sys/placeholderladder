@@ -8,7 +8,8 @@ const RIOT_KEY = process.env.RIOT_KEY;
 
 app.get("/ladder", async (req, res) => {
   const players = [
-    { name: "Jugador1", tag: "1234", region: "la2" }
+    { name: "DAMI", tag: "ARG", region: "la2" },
+    { name: "PONPONPON", tag: "GWEN", region: "la2" }
   ];
 
   const headers = {
