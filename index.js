@@ -13,9 +13,10 @@ const PLAYERS = [
   { name: "Gwungle Account", puuid: "VYq90ZrnlZ8cBry-bZW9czUSf4yRu8P11HExr6lSmGLpXiwA5Q-EpdSEq6nnM01qMltX-U7DAnM6xg" }
 ];
 
+
 async function getRankByPUUID(puuid) {
   const res = await fetch(
-    `https://${REGION}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${RIOT_KEY}`
+    `https://la2.api.riotgames.com/lol/league/v4/entries/by-puuid/${encodeURIComponent(puuid)}?api_key=${RIOT_KEY}`
   );
 
   if (!res.ok) {
