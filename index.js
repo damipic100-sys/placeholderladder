@@ -17,8 +17,16 @@ async function getRankByPUUID(puuid) {
   const res = await fetch(
     `https://${REGION}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${RIOT_KEY}`
   );
-  return res.json();
+
+  if (!res.ok) {
+    console.error("Riot error:", res.status);
+    return [];
+  }
+
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
 }
+
 
 app.get("/export", async (_, res) => {
   let csv = "nombre,rango,liga,lp,ganadas,perdidas\n";
